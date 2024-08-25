@@ -1,0 +1,8 @@
+name: check format & syntax
+on: [push]
+jobs:
+  check-clang-format:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: clang-format -i $(find . -name *.ino) --Werror --dry-run
